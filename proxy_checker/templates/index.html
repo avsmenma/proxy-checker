@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Checker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/static/static.css">
+    <style>
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .loading-spinner i {
+            font-size: 50px;
+            color: #007bff;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .progress-bar {
+            display: none;
+            margin-top: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            height: 20px;
+            width: 100%;
+            position: relative;
+        }
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background-color: #007bff;
+            width: 0%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Proxy Checker</h1>
+    </div>
+
+    <div class="form-container">
+        <h2>Check Your Proxies</h2>
+        <form id="proxy-form">
+            <textarea id="proxy-list" rows="6" placeholder="Enter proxies here, one per line (e.g., IP:PORT:USER:PASS)"></textarea>
+            <button type="submit">Check Proxy</button>
+        </form>
+    </div>
+
+    <div class="loading-spinner">
+        <i class="fas fa-spinner"></i>
+    </div>
+    
+    <div class="progress-bar">
+        <span id="progress-text">0%</span>
+    </div>
+
+    <div id="result-container">
+        <table id="result-table">
+            <thead>
+                <tr>
+                    <th>IP:Port</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hasil pengecekan proxy akan muncul di sini -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>
